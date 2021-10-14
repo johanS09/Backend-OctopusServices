@@ -49,9 +49,9 @@ app.use('/api', require('./routes/servicio'));
 app.use('/api', require('./routes/usuario'));
 */
 //app.use('/api', require('./routes/nota'));
-app.get('/', (req, res) => {
-     res.send('Hello wordl :(!!');
-});
+// app.get('/', (req, res) => {
+//      res.send('Hello wordl :(!!');
+// });
 
 //Middleware para Vue.js rouyter modo history
 const history = require('connect-history-api-fallback');
