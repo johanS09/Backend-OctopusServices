@@ -36,15 +36,22 @@ app.use(express.urlencoded({ extended: true }));
 //ROUTE
 
 app.use('/api', router);
+app.use((req, res, next)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, ContentType, Accept");
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+   });
 /*
 app.use('/api', require('./routes/especialidad'));
 app.use('/api', require('./routes/servicio'));
 app.use('/api', require('./routes/usuario'));
 */
 //app.use('/api', require('./routes/nota'));
-/*app.get('/', (req, res) => {
-    res.send('Hello wordl :(!!');
-});*/
+app.get('/', (req, res) => {
+     res.send('Hello wordl :(!!');
+});
 
 //Middleware para Vue.js rouyter modo history
 const history = require('connect-history-api-fallback');
